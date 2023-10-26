@@ -1,0 +1,18 @@
+<app-loader *ngIf="tasksList.length === 0; else taskList" />
+<ng-template #taskList>
+  <ul>
+    <li *ngFor="let task of tasksList" class="task-item"
+      [ngClass]="{'complete': task.isCompleted, 'incomplete': !task.isCompleted}" (click)="updateTask($event, task.id)">
+      <span>
+        {{task.text}}
+      </span>
+      <button class="delete-button" (click)="deleteTask($event, task.id)" aria-label="Borrar tarea">
+        <svg width="800" height="800" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M18 6v10.2c0 1.68 0 2.52-.33 3.16a3 3 0 0 1-1.3 1.31c-.65.33-1.49.33-3.17.33h-2.4c-1.68 0-2.52 0-3.16-.33a3 3 0 0 1-1.31-1.3C6 18.71 6 17.87 6 16.2V6M4 6h16m-4 0-.27-.81a4.59 4.59 0 0 0-.64-1.47 2 2 0 0 0-.8-.58C13.94 3 13.52 3 12.7 3h-1.38c-.83 0-1.25 0-1.6.14a2 2 0 0 0-.8.58c-.25.29-.38.68-.64 1.47L8 6"
+            stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</ng-template>

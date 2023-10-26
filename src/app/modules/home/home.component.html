@@ -1,0 +1,6 @@
+<main>
+  <h1>Todo list</h1>
+  <!-- @TODO: Añadir task -->
+  <app-tasks-list [tasksList]="tasksItems" (deleteTaskEvent)="deleteTaskList($event)"
+    (updateTaskEvent)="updateTaskList($event)"></app-tasks-list>
+</main>
